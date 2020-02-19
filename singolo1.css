@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: LatoBlack;
+  src: url(./assets/fonts/Lato-Black.ttf) format("truetype");
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url(./assets/fonts/Lato-Bold.ttf) format("truetype");
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LatoLight;
+  src: url(./assets/fonts/Lato-Light.ttf) format("truetype");
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LatoRegular;
+  src: url(./assets/fonts/Lato-Regular.ttf) format("truetype");
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+header {
+  height: 90px;
+  border-bottom: solid 5.5px #323746;
+  background-color: #2d303a;
+}
+
+header h1 {
+  margin-left: 40px;
+  margin-top: 29px;
+  float: left;
+  color: #ffffff;
+  font-size: 25px;
+  font-family: LatoBold;
+  letter-spacing: -0.7px;
+  cursor: pointer;
+}
+
+header h1::after {
+  content: "*";
+  color: #f06c64;
+}
+
+nav ul {
+  float: right;
+  margin-top: 42px;
+  font-family: LatoBold;
+  text-align: center;
+  font-size: 12px;
+  margin-right: 40px;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+}
+
+nav ul li {
+  display: block;
+  float: left;
+  cursor: pointer;
+}
+
+nav ul li.active {
+  color: #f06c64;
+  cursor: default;
+}
+
+nav ul li:not(:last-child):after {
+  content: "·";
+  display: inline-block;
+  color: #424758;
+  width: 30px;
+}
