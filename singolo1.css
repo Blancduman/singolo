@@ -86,3 +86,72 @@ nav ul li:not(:last-child):after {
   color: #424758;
   width: 30px;
 }
+
+section.slider {
+  height: 600px;
+  width: 1020px;
+  background-color: #f06c64;
+  position: relative;
+}
+
+section.slider .slider-left {
+  position: absolute;
+  transform-origin: center;
+  background-image: url(./assets/images/chevLeft.png);
+  width: 16px;
+  height: 27px;
+  top: 46.7%;
+  left: 42px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+section.slider .slider-right {
+  position: absolute;
+  transform-origin: center;
+  background-image: url(./assets/images/chevRight.png);
+  width: 16px;
+  height: 27px;
+  top: 46.7%;
+  right: 42px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+section.slider .vertical-phone {
+  position: absolute;
+  background-image: url(./assets/images/iPhone-Vertical.png);
+  width: 240px;
+  height: 483px;
+  top: 52px;
+  left: 112px;
+  z-index: 2;
+}
+
+section.slider .vertical-phone .vertical-photo-slide {
+  position: absolute;
+  width: 194px;
+  height: 339px;
+  top: 62px;
+  left: 11px;
+  z-index: 1;
+}
+
+section.slider .horizontal-phone {
+  position: absolute;
+  background-image: url(./assets/images/iPhone-Horizontal.png);
+  height: 240px;
+  width: 483px;
+  top: 174px;
+  left: 425px;
+  z-index: 2;
+}
+
+section.slider .horizontal-phone .horizontal-photo-slide {
+  height: 194px;
+  width: 339px;
+  position: absolute;
+  top: 11px;
+  left: 57px;
+  z-index: 1;
+}
