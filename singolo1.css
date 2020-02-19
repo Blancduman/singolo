@@ -37,7 +37,7 @@ body {
 }
 
 header {
-  height: 90px;
+  height: 89px;
   border-bottom: solid 5.5px #323746;
   background-color: #2d303a;
 }
@@ -104,6 +104,11 @@ section.slider .slider-left {
   left: 42px;
   z-index: 3;
   cursor: pointer;
+  filter: opacity(0.2);
+}
+
+section.slider .slider-left:hover {
+  filter: opacity(1);
 }
 
 section.slider .slider-right {
@@ -116,6 +121,11 @@ section.slider .slider-right {
   right: 42px;
   z-index: 3;
   cursor: pointer;
+  filter: opacity(0.2);
+}
+
+section.slider .slider-right:hover {
+  filter: opacity(1);
 }
 
 section.slider .vertical-phone {
@@ -123,7 +133,7 @@ section.slider .vertical-phone {
   background-image: url(./assets/images/iPhone-Vertical.png);
   width: 240px;
   height: 483px;
-  top: 52px;
+  top: 53px;
   left: 112px;
   z-index: 2;
 }
@@ -154,4 +164,68 @@ section.slider .horizontal-phone .horizontal-photo-slide {
   top: 11px;
   left: 57px;
   z-index: 1;
+}
+
+article.services {
+  height: 500px;
+  background-color: #f2f2f2;
+  padding: 34px 40px 0;
+}
+
+article.services h2 {
+  font-family: LatoBlack;
+  font-size: 30px;
+  color: #666d89;
+  margin-bottom: 23px;
+}
+
+article.services p {
+  font-family: LatoLight;
+  color: #767e9e;
+  font-size: 20px;
+  line-height: 30px;
+  margin: -6px 0;
+  letter-spacing: -0.95px;
+}
+
+article.services .services-grid {
+  margin-top: 54px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+article.services .services-grid-item {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 124px;
+}
+
+article.services .services-grid-item .services-icon {
+  width: 60px;
+}
+
+article.services .services-grid-item .services-description {
+  width: 220px;
+}
+
+article.services .services-grid-item .services-description h3 {
+  margin: 0;
+  font-family: LatoBlack;
+  font-size: 18px;
+  color: #666d89;
+  line-height: 0.992;
+  letter-spacing: 0px;
+}
+
+article.services .services-grid-item .services-description p {
+  font-size: 12px;
+  font-family: LatoRegular;
+  color: #767e9e;
+  text-align: justify;
+  line-height: 1.797;
+  margin: 0;
+  margin-top: 9px;
+  letter-spacing: 0px;
 }
