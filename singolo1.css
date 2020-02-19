@@ -88,10 +88,11 @@ nav ul li:not(:last-child):after {
 }
 
 section.slider {
-  height: 600px;
+  height: 595px;
   width: 1020px;
   background-color: #f06c64;
   position: relative;
+  border-bottom: solid 5px #ea676b;
 }
 
 section.slider .slider-left {
@@ -167,9 +168,10 @@ section.slider .horizontal-phone .horizontal-photo-slide {
 }
 
 article.services {
-  height: 500px;
+  height: 460px;
   background-color: #f2f2f2;
   padding: 34px 40px 0;
+  border-bottom: solid 5px #ffffff;
 }
 
 article.services h2 {
