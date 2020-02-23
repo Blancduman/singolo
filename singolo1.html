@@ -7,54 +7,51 @@
     <link rel="stylesheet" href="singolo1.css" />
   </head>
   <body>
-    <div class="layout">
-      <header>
-        <h1>SINGOLO</h1>
-        <nav>
-          <ul>
-            <li class="active">HOME</li>
-            <li>SERVICES</li>
-            <li>PORTFOLIO</li>
-            <li>ABOUT</li>
-            <li>CONTACT</li>
-          </ul>
-        </nav>
-      </header>
-      <section class="slider">
-        <span class="slider-left"></span>
-        <div class="vertical-phone">
-          <div class="vertical-photo-slide">
-            <img
-              src="assets/images/Vertical-imgpng.png"
-              alt="iPhone-Vertical"
-            />
-          </div>
+    <header class="header wrapper">
+      <a href="#" class="logo">SINGOLO</a>
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li class="navigation__link active"><a href="#">HOME</a></li>
+          <li class="navigation__link"><a href="#">SERVICES</a></li>
+          <li class="navigation__link"><a href="#">PORTFOLIO</a></li>
+          <li class="navigation__link"><a href="#">ABOUT</a></li>
+          <li class="navigation__link"><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="carousel wrapper">
+      <span class="carousel__control carousel__control--prev"></span>
+
+      <div class="phone phone--vertical">
+        <div class="item item--vertical item--active">
+          <img src="assets/images/Vertical-imgpng.png" alt="iPhone-Vertical" />
         </div>
-        <div class="horizontal-phone">
-          <div class="horizontal-photo-slide">
-            <img
-              src="assets/images/Horizontal-img.png"
-              alt="iPhone-Horizontal"
-            />
-          </div>
+      </div>
+
+      <div class="phone phone--horizontal">
+        <div class="item item--horizontal item--active">
+          <img src="assets/images/Horizontal-img.png" alt="iPhone-Horizontal" />
         </div>
-        <span class="slider-right"></span>
-      </section>
-      <article class="services">
-        <h2>Our Services</h2>
-        <p>
+      </div>
+
+      <span class="carousel__control carousel__control--next"></span>
+    </div>
+    <div class="wrapper">
+      <section class="services">
+        <h2 class="services__title">Our Services</h2>
+        <p class="services__description">
           Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
           Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget
           lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,
           tortor mauris condimentum nibh.
         </p>
 
-        <div class="services-grid">
-          <div class="services-grid-item">
-            <div class="services-icon">
+        <div class="layout-3-column">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Pen.png" alt="Pen icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>Custom Design</h3>
               <p>
                 Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam
@@ -62,11 +59,11 @@
               </p>
             </div>
           </div>
-          <div class="services-grid-item">
-            <div class="services-icon">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Bulb.png" alt="Bulb icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>Inovative Ideas</h3>
               <p>
                 Quisque luctus, quam eget molestie commodo, lacus purus cursus
@@ -74,11 +71,11 @@
               </p>
             </div>
           </div>
-          <div class="services-grid-item">
-            <div class="services-icon">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Heart.png" alt="Heart icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>Love Is The Answer</h3>
               <p>
                 Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet
@@ -86,11 +83,11 @@
               </p>
             </div>
           </div>
-          <div class="services-grid-item">
-            <div class="services-icon">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Phone.png" alt="Phone icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>Responsive Layout</h3>
               <p>
                 Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas
@@ -98,11 +95,11 @@
               </p>
             </div>
           </div>
-          <div class="services-grid-item">
-            <div class="services-icon">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Bubble.png" alt="Bubble icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>24 / 7 Support</h3>
               <p>
                 Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi.
@@ -110,11 +107,11 @@
               </p>
             </div>
           </div>
-          <div class="services-grid-item">
-            <div class="services-icon">
+          <div class="service">
+            <div class="service__icon">
               <img src="assets/images/Star.png" alt="Star icon" />
             </div>
-            <div class="services-description">
+            <div class="service__description">
               <h3>Feel Like A Star</h3>
               <p>
                 Quisque hendrerit purus dapibus, ornare nibh vitae, viverra
@@ -123,7 +120,7 @@
             </div>
           </div>
         </div>
-      </article>
+      </section>
     </div>
   </body>
 </html>

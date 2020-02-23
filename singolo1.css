@@ -1,9 +1,13 @@
+html {
+  font-size: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
-.layout {
+.wrapper {
   width: 1020px;
   margin: 0 auto;
 }
@@ -36,152 +40,195 @@ body {
   font-style: normal;
 }
 
-header {
+.header {
   height: 89px;
   border-bottom: solid 5.5px #323746;
   background-color: #2d303a;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header h1 {
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo {
   margin-left: 40px;
-  margin-top: 29px;
-  float: left;
   color: #ffffff;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-family: LatoBold;
   letter-spacing: -0.7px;
   cursor: pointer;
 }
 
-header h1::after {
+.logo::after {
   content: "*";
   color: #f06c64;
 }
 
-nav ul {
-  float: right;
-  margin-top: 42px;
+.navigation {
+  display: flex;
+  font-size: 1.2rem;
   font-family: LatoBold;
   text-align: center;
-  font-size: 12px;
   margin-right: 40px;
   letter-spacing: -0.2px;
   color: #ffffff;
 }
 
-nav ul li {
+.header__navigation {
+  margin-top: 1.2rem;
+}
+
+.navigation__link {
   display: block;
   float: left;
   cursor: pointer;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
 }
 
-nav ul li.active {
+.navigation__link.active {
   color: #f06c64;
   cursor: default;
 }
 
-nav ul li:not(:last-child):after {
+.navigation__link:not(.active):hover {
+  color: #ea676b;
+}
+
+.navigation__link:not(:last-child):after {
   content: "·";
   display: inline-block;
   color: #424758;
   width: 30px;
 }
 
-section.slider {
+.carousel {
   height: 595px;
-  width: 1020px;
   background-color: #f06c64;
   position: relative;
   border-bottom: solid 5px #ea676b;
 }
 
-section.slider .slider-left {
+.carousel__control {
   position: absolute;
   transform-origin: center;
+  width: 16px;
+  height: 27px;
+  top: 46.7%;
+  z-index: 3;
+  cursor: pointer;
+  filter: opacity(0.2);
+
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.carousel__control--prev {
   background-image: url(./assets/images/chevLeft.png);
-  width: 16px;
-  height: 27px;
-  top: 46.7%;
   left: 42px;
-  z-index: 3;
-  cursor: pointer;
-  filter: opacity(0.2);
 }
 
-section.slider .slider-left:hover {
-  filter: opacity(1);
-}
-
-section.slider .slider-right {
-  position: absolute;
-  transform-origin: center;
+.carousel__control--next {
   background-image: url(./assets/images/chevRight.png);
-  width: 16px;
-  height: 27px;
-  top: 46.7%;
   right: 42px;
-  z-index: 3;
-  cursor: pointer;
-  filter: opacity(0.2);
 }
 
-section.slider .slider-right:hover {
+.carousel__control--prev:hover,
+.carousel__control--next:hover {
   filter: opacity(1);
 }
 
-section.slider .vertical-phone {
+.phone {
   position: absolute;
-  background-image: url(./assets/images/iPhone-Vertical.png);
+  background-image: url(./assets/images/Shadow_v.png);
   width: 240px;
   height: 483px;
-  top: 53px;
-  left: 112px;
   z-index: 2;
+  transform-origin: center;
 }
 
-section.slider .vertical-phone .vertical-photo-slide {
+.phone--vertical {
+  top: 53px;
+  left: 112px;
+}
+
+.phone--vertical::before,
+.phone--horizontal::before {
+  content: "";
+  position: absolute;
+  background-image: url(./assets/images/iPhone.png);
+  width: 215px;
+  height: 458px;
+  z-index: -1;
+}
+
+.phone--horizontal::before {
+  transform: scaleY(-1);
+}
+
+.phone--horizontal {
+  top: 53px;
+  left: 547px;
+  transform: scaleY(-1) rotate(-90deg);
+}
+
+.item {
   position: absolute;
   width: 194px;
   height: 339px;
+  z-index: 3;
+}
+
+.item--vertical {
   top: 62px;
   left: 11px;
-  z-index: 1;
 }
 
-section.slider .horizontal-phone {
-  position: absolute;
-  background-image: url(./assets/images/iPhone-Horizontal.png);
-  height: 240px;
-  width: 483px;
-  top: 174px;
-  left: 425px;
-  z-index: 2;
+.item--horizontal {
+  top: -16px;
+  left: 83px;
+  transform: rotateZ(-90deg) scaleX(-1);
 }
 
-section.slider .horizontal-phone .horizontal-photo-slide {
-  height: 194px;
-  width: 339px;
-  position: absolute;
-  top: 11px;
-  left: 57px;
-  z-index: 1;
-}
-
-article.services {
+.services {
   height: 460px;
   background-color: #f2f2f2;
   padding: 34px 40px 0;
   border-bottom: solid 5px #ffffff;
 }
 
-article.services h2 {
+.services__title {
   font-family: LatoBlack;
   font-size: 30px;
   color: #666d89;
   margin-bottom: 23px;
 }
 
-article.services p {
+.services__description {
   font-family: LatoLight;
   color: #767e9e;
   font-size: 20px;
@@ -190,29 +237,29 @@ article.services p {
   letter-spacing: -0.95px;
 }
 
-article.services .services-grid {
+.layout-3-column {
   margin-top: 54px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-article.services .services-grid-item {
+.service {
   display: flex;
   justify-content: space-between;
   width: 300px;
   height: 124px;
 }
 
-article.services .services-grid-item .services-icon {
+.service__icon {
   width: 60px;
 }
 
-article.services .services-grid-item .services-description {
+.service__description {
   width: 220px;
 }
 
-article.services .services-grid-item .services-description h3 {
+.service__description h3 {
   margin: 0;
   font-family: LatoBlack;
   font-size: 18px;
@@ -221,7 +268,7 @@ article.services .services-grid-item .services-description h3 {
   letter-spacing: 0px;
 }
 
-article.services .services-grid-item .services-description p {
+.service__description p {
   font-size: 12px;
   font-family: LatoRegular;
   color: #767e9e;
