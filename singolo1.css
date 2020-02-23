@@ -84,6 +84,7 @@ a:active {
   font-size: 2.5rem;
   font-family: LatoBold, Verdana, sans-serif;
   letter-spacing: -0.7px;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -99,6 +100,7 @@ a:active {
   text-align: center;
   margin-right: 40px;
   letter-spacing: -0.2px;
+  text-transform: uppercase;
   color: #ffffff;
 }
 
