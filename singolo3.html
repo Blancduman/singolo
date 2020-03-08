@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="singolo3.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <section class="contact">
+        <div class="wrapper">
+          <h2 class="contact__title title">Get a Quote</h2>
+          <p class="contact__description description">
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
+            Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget
+            lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,
+            tortor mauris condimentum nibh.
+          </p>
+        </div>
+        <div class="wrapper-no-paddings">
+          <div class="contacts__container">
+            <div class="contacts__form">
+              <form action="#" method="post" class="contacts-form">
+                <input
+                  class="contacts-form-input"
+                  type="text"
+                  name="name"
+                  placeholder="Name (Required)"
+                  pattern="([A-Za-z\sА-Яа-яЁё])+"
+                  title="Username may consist only letters and spaces"
+                  required=""
+                />
+                <input
+                  class="contacts-form-input"
+                  type="email"
+                  name="email"
+                  placeholder="Email (Required)"
+                  pattern="([A-Za-z0-9._-])+@([A-Za-z0-9-_])+\.([a-z]){2,3}"
+                  title="Email must be in format <username>@<domain>"
+                  required=""
+                />
+                <input
+                  class="contacts-form-input"
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                />
+                <textarea
+                  class="contacts-form-textarea"
+                  name="message"
+                  placeholder="Describe your project in detail..."
+                ></textarea>
+                <input
+                  class="contacts-form-input-button"
+                  type="submit"
+                  value="Submit"
+                />
+              </form>
+            </div>
+            <div class="contacts__info">
+              <h3 class="contacts__info--header">Contact Information</h3>
+              <p class="contacts__info--description">
+                Quisque hendrerit purus dapibus, ornare nibh vitae, viver-ra
+                nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat
+                libero. Nulla sed nunc et tortor luctus faucibus. Morbi at
+                aliquet turpis, et consequat felis.
+              </p>
+              <p class="contacts__info--address">
+                <a
+                  class="contacts__info--address-link"
+                  href="https://www.google.com/maps/search/Elm+St.+14%2F05+Lost+City/@53.8443776,27.5775488,13z"
+                  title="Find us on Google Maps"
+                  target="_blank"
+                  >Elm St. 14/05 Lost City</a
+                >
+              </p>
+              <p class="contacts__info--phone">
+                <a
+                  class="contacts__info--phone-link"
+                  href="tel:035283318635"
+                  title="Our phone number"
+                  >03528 331 86 35</a
+                >
+              </p>
+              <p class="contacts__info--email">
+                <a
+                  class="contacts__info--email-link"
+                  href="mailto:info@singolo.com"
+                  title="Our email"
+                  >info@singolo.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="footer-wrapper">
+          <p class="footer-copyright">© Copyright 2013</p>
+          <ul class="footer-social-media-list">
+            <li class="footer-social-media-item">
+              <a class="footer-social-media-link" href="#">
+                <img src="assets/images/2/Facebook.png" alt="Facebook" />
+              </a>
+            </li>
+            <li class="footer-social-media-item">
+              <a class="footer-social-media-link" href="#">
+                <img src="assets/images/2/Google.png" alt="Google" />
+              </a>
+            </li>
+            <li class="footer-social-media-item">
+              <a class="footer-social-media-link" href="#">
+                <img src="assets/images/2/Twitter.png" alt="Twitter" />
+              </a>
+            </li>
+            <li class="footer-social-media-item">
+              <a class="footer-social-media-link" href="#">
+                <img src="assets/images/2/LinkedIn.png" alt="LinkedIn" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
