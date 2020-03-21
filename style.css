@@ -868,5 +868,6 @@ a:active {
   outline: none;
 }
 
-.modal-footer button:hover {
+.modal {
+  display: none;
 }
