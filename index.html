@@ -13,38 +13,62 @@
         <h1 class="logo"><a href="#">SINGOLO</a></h1>
         <nav class="header__navigation">
           <ul class="navigation">
-            <li class="navigation__link active"><a href="#">home</a></li>
-            <li class="navigation__link"><a href="#">services</a></li>
-            <li class="navigation__link"><a href="#">portfolio</a></li>
-            <li class="navigation__link"><a href="#">about</a></li>
-            <li class="navigation__link"><a href="#">contact</a></li>
+            <li class="navigation__link active"><a href="#home">home</a></li>
+            <li class="navigation__link"><a href="#services">services</a></li>
+            <li class="navigation__link"><a href="#portfolio">portfolio</a></li>
+            <li class="navigation__link"><a href="#about">about</a></li>
+            <li class="navigation__link"><a href="#contact">contact</a></li>
           </ul>
         </nav>
       </header>
+
+      <section class="carousel-padding" id="home">
       <div class="carousel">
         <span class="carousel__control carousel__control--prev"></span>
-
-        <div class="phone phone--vertical">
-          <div class="item item--vertical item--active">
-            <img
-              src="assets/images/Vertical-imgpng.png"
-              alt="iPhone-Vertical"
-            />
-          </div>
-        </div>
-
-        <div class="phone phone--horizontal">
-          <div class="item item--horizontal item--active">
-            <img
-              src="assets/images/Horizontal-img.png"
-              alt="iPhone-Horizontal"
-            />
+        <div class="slider">
+          <div class="slider__wrapper">
+            <div class="slider__item carousel__item-1">
+              <div class="phone phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-1"></span>
+              </div>
+              
+              <div class="phone phone--horizontal">
+                <div class="item item--horizontal item--active">
+                  <img class="phone-image" src="assets/images/Horizontal-img.png" data-image="assets/images/Horizontal-img.png" data-black="assets/images/Horizontal-black.jpg" alt="iPhone-Horizontal" />
+                </div>
+                <span class="phone-btn-2"></span>
+              </div>
+            </div>
+            <div class="slider__item carousel__item-2">
+              <div class="phone phone--1 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-3"></span>
+              </div>
+              <div class="phone phone--2 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-4"></span>
+              </div>
+              <div class="phone phone--3 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-5"></span>
+              </div>
+            </div>
           </div>
         </div>
 
         <span class="carousel__control carousel__control--next"></span>
       </div>
-      <section class="services">
+      </section>
+      <section class="services" id="services">
         <div class="wrapper">
           <h2 class="services__title">Our Services</h2>
           <p class="services__description">
@@ -130,7 +154,7 @@
           </div>
         </div>
       </section>
-      <section class="portfolio">
+      <section class="portfolio" id="portfolio">
         <div class="wrapper-with-padding">
           <h2 class="portfolio__title title">Portfolio</h2>
           <p class="portfolio__description description">
@@ -145,7 +169,7 @@
           </div>
           </div>
           <div class="wrapper">
-          <div class="layout-3-column marginTop20">
+          <div class="layout-3-column marginTop20 work__container">
             <article class="work">
               <img class="work__image" src="assets/images/2/1.png" alt="work" />
             </article>
@@ -186,7 +210,7 @@
           </div>
       </section>
       
-      <section class="about-us">
+      <section class="about-us" id="about">
         <div class="wrapper-with-padding">
           <h2 class="about-us__title title">About Us</h2>
           <p class="about-us__description description">
@@ -290,7 +314,7 @@
             </ul>
           </div>
       </section>
-      <section class="contact">
+      <section class="contact" id="contact">
         <div class="wrapper-with-padding">
           <h2 class="contact__title title">Get a Quote</h2>
           <p class="contact__description description">
@@ -366,5 +390,24 @@
         </div>
       </footer>
     </div>
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>The letter was sent</h2>
+        </div>
+        <div class="modal-body">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button class="close">OK</button>
+        </div>
+      </div>
+    
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

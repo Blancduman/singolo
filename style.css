@@ -1,15 +1,15 @@
+body,
 html {
-  font-size: 10px;
-}
-
-body {
   margin: 0;
   padding: 0;
+  font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 .layout {
   width: 1020px;
   margin: 0 auto;
+  position: relative;
 }
 
 .wrapper {
@@ -21,6 +21,62 @@ body {
   width: 940px;
   margin: 0 auto;
   padding-top: 69px;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider__wrapper {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  position: relative;
+  height: 595px;
+}
+.carousel__item-1 {
+  background-color: #f06c64;
+  border-bottom: solid 5px #ea676b;
+}
+.carousel__item-2 {
+  background-color: #648bf0;
+  border-bottom: solid 5px rgb(80, 112, 194);
+}
+/* @media (min-width: 980px) {
+  .slider__item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+} */
+
+.slider__item > div {
+  /* line-height: 250px;
+  font-size: 100px;
+  text-align: center; */
+}
+
+.phone--2 {
+  top: 58px !important;
+  left: 391px !important;
+  transform: scale(1.063);
+}
+.phone--1 {
+  top: 67px !important;
+  left: 209px !important;
+  opacity: 0.5;
+  transform: scale(0.65);
+}
+.phone--3 {
+  top: 67px !important;
+  left: auto !important;
+  right: 210px !important;
+  opacity: 0.5;
+  transform: scale(0.65);
 }
 
 @font-face {
@@ -56,14 +112,18 @@ body {
 }
 
 .header {
-  height: 89px;
+  height: 95px;
   border-bottom: solid 5.5px #323746;
   background-color: #2d303a;
   color: #ffffff;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 5;
+  width: 1020px;
+  margin: 0 auto;
 }
 
 a:link {
@@ -150,6 +210,10 @@ a:active {
   border-bottom: solid 5px #ea676b;
 }
 
+.carousel-padding {
+  padding-top: 95px;
+}
+
 .carousel__control {
   position: absolute;
   transform-origin: center;
@@ -172,6 +236,46 @@ a:active {
 .carousel__control--next {
   background-image: url(./assets/images/chevRight.png);
   right: 42px;
+}
+
+.phone-btn-1 {
+  position: absolute;
+  top: 406px;
+  left: 85px;
+  height: 46px;
+  width: 44px;
+}
+
+.phone-btn-2 {
+  position: absolute;
+  top: 6px;
+  left: 85px;
+  height: 46px;
+  width: 44px;
+}
+
+.phone-btn-3 {
+  position: absolute;
+  top: 408px;
+  left: 85px;
+  height: 43px;
+  width: 44px;
+}
+
+.phone-btn-4 {
+  position: absolute;
+  top: 408px;
+  left: 85px;
+  height: 43px;
+  width: 44px;
+}
+
+.phone-btn-5 {
+  position: absolute;
+  top: 408px;
+  left: 85px;
+  height: 43px;
+  width: 44px;
 }
 
 .carousel__control--prev:hover,
@@ -350,6 +454,10 @@ a:active {
 .tag:not(.tag-selected) {
   cursor: pointer;
 }
+.tag:not(.tag-selected):hover {
+  color: #dedede;
+  border-color: #dedede;
+}
 
 .tag-selected {
   color: #dedede;
@@ -363,6 +471,17 @@ a:active {
 }
 .work {
   margin-bottom: 18px;
+  width: 220px;
+  height: 187px;
+}
+
+.work__image {
+  width: 220px;
+  height: 187px;
+}
+
+.work-selected {
+  border: 5px solid #f06c64;
 }
 
 .about-us {
@@ -649,4 +768,105 @@ a:active {
 .contacts__info--email-link:focus {
   outline: none;
   text-decoration: underline;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.close {
+  color: white;
+  float: left;
+  font-size: 28px;
+  font-family: LatoBold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #f48c8f;
+  color: white;
+  font-family: LatoBlack;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  font-size: 14px;
+  font-family: LatoRegular;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #f48c8f;
+  color: white;
+  height: 47px;
+}
+
+.modal-footer button {
+  height: 36px;
+  border-radius: 5px;
+  border: 0;
+  letter-spacing: -0.6px;
+  background-color: #d6564f;
+  color: #f48c8f;
+  font-family: LatoRegular, Arial, sans-serif;
+  color: #f48c8f;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  outline: none;
+}
+
+.modal-footer button:hover {
 }
