@@ -20,165 +20,123 @@ function onScroll() {
 
 //slider
 const multiSlider = (() => {
-  const _isElementVisible = element => {
-    const rect = element.getBoundingClientRect(),
-      vWidth = window.innerWidth || document.documentElement.clientWidth,
-      vHeight = window.innerHeight || document.documentElement.clientHeight,
-      elemFromPoint = function(x, y) {
-        return document.elementFromPoint(x, y);
-      };
-    if (
-      rect.right < 0 ||
-      rect.bottom < 0 ||
-      rect.left > vWidth ||
-      rect.top > vHeight
-    )
-      return false;
-    return (
-      element.contains(elemFromPoint(rect.left, rect.top)) ||
-      element.contains(elemFromPoint(rect.right, rect.top)) ||
-      element.contains(elemFromPoint(rect.right, rect.bottom)) ||
-      element.contains(elemFromPoint(rect.left, rect.bottom))
-    );
+  const mainElement = document.querySelector(".slider");
+  const sliderWrapper = mainElement.querySelector(".slider__wrapper");
+  const sliderItems = mainElement.querySelectorAll(".slider__item");
+  const wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width);
+  const itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width);
+  let positionLeftItem = 0;
+  let transform = 0;
+  let step = (itemWidth / wrapperWidth) * 100;
+  let items = Array.from(sliderItems).map((item, index) => ({
+    item: item,
+    position: index,
+    transform: 0
+  }));
+  const states = [
+    { active: false, minWidth: 0, count: 1 },
+    { active: false, minWidth: 980, count: 2 }
+  ];
+
+  const _setActive = () => {
+    let _index = 0;
+    const width = parseFloat(document.body.clientWidth);
+    states.forEach((i, index) => {
+      states[index].active = false;
+      if (width >= states[index].minWidth) _index = index;
+    });
+    states[_index].active = true;
   };
 
-  return () => {
-    const mainElement = document.querySelector(".slider");
-    const sliderWrapper = mainElement.querySelector(".slider__wrapper");
-    const sliderItems = mainElement.querySelectorAll(".slider__item");
-    const wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width);
-    const itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width);
-    let positionLeftItem = 0;
-    let transform = 0;
-    let step = (itemWidth / wrapperWidth) * 100;
-    let items = Array.from(sliderItems).map((item, index) => ({
-      item: item,
-      position: index,
-      transform: 0
-    }));
-    const states = [
-      { active: false, minWidth: 0, count: 1 },
-      { active: false, minWidth: 980, count: 2 }
-    ];
+  const _getActive = () => {
+    let _index;
+    states.forEach((item, index) => {
+      if (states[index].active) _index = index;
+    });
+    return _index;
+  };
 
-    const _setActive = () => {
+  const position = {
+    getItemMin: () => {
+      let indexItem = 0;
+      items.forEach(function(item, index) {
+        if (item.position < items[indexItem].position) {
+          indexItem = index;
+        }
+      });
+      return indexItem;
+    },
+    getItemMax: () => {
+      let indexItem = 0;
+      items.forEach(function(item, index) {
+        if (item.position > items[indexItem].position) {
+          indexItem = index;
+        }
+      });
+      return indexItem;
+    },
+    getMin: () => {
+      return items[position.getItemMin()].position;
+    },
+    getMax: function() {
+      return items[position.getItemMax()].position;
+    }
+  };
+
+  const _transformItem = direction => {
+    let nextItem;
+    if (direction === "right") {
+      positionLeftItem++;
+      if (positionLeftItem + wrapperWidth / itemWidth - 1 > position.getMax()) {
+        nextItem = position.getItemMin();
+        items[nextItem].position = position.getMax() + 1;
+        items[nextItem].transform += items.length * 100;
+        items[nextItem].item.style.transform =
+          "translateX(" + items[nextItem].transform + "%)";
+      }
+      transform -= step;
+    }
+    if (direction === "left") {
+      positionLeftItem--;
+      if (positionLeftItem < position.getMin()) {
+        nextItem = position.getItemMax();
+        items[nextItem].position = position.getMin() - 1;
+        items[nextItem].transform -= items.length * 100;
+        items[nextItem].item.style.transform =
+          "translateX(" + items[nextItem].transform + "%)";
+      }
+      transform += step;
+    }
+    sliderWrapper.style.transform = "translateX(" + transform + "%)";
+  };
+
+  const _controlClick = e => {
+    if (e.target.classList.contains("slider__control--prev")) {
+      console.log("left");
+      _transformItem("left");
+    } else if (e.target.classList.contains("slider__control--next")) {
+      console.log("right");
+      _transformItem("right");
+    }
+  };
+
+  const _setUpListeners = () => {
+    mainElement.parentElement.addEventListener("click", _controlClick);
+    window.addEventListener("resize", () => {
       let _index = 0;
       const width = parseFloat(document.body.clientWidth);
-      states.forEach((i, index) => {
-        states[index].active = false;
+      states.forEach((item, index) => {
         if (width >= states[index].minWidth) _index = index;
       });
-      states[_index].active = true;
-    };
-
-    const _getActive = () => {
-      let _index;
-      states.forEach((item, index) => {
-        if (states[index].active) _index = index;
-      });
-      return _index;
-    };
-
-    const position = {
-      getItemMin: () => {
-        let indexItem = 0;
-        items.forEach(function(item, index) {
-          if (item.position < items[indexItem].position) {
-            indexItem = index;
-          }
-        });
-        return indexItem;
-      },
-      getItemMax: () => {
-        let indexItem = 0;
-        items.forEach(function(item, index) {
-          if (item.position > items[indexItem].position) {
-            indexItem = index;
-          }
-        });
-        return indexItem;
-      },
-      getMin: () => {
-        return items[position.getItemMin()].position;
-      },
-      getMax: function() {
-        return items[position.getItemMax()].position;
+      if (_index !== _getActive()) {
+        _setActive();
       }
-    };
-
-    const _transformItem = direction => {
-      let nextItem;
-      if (!_isElementVisible(mainElement)) {
-        return;
-      }
-      if (direction === "right") {
-        positionLeftItem++;
-        if (
-          positionLeftItem + wrapperWidth / itemWidth - 1 >
-          position.getMax()
-        ) {
-          nextItem = position.getItemMin();
-          items[nextItem].position = position.getMax() + 1;
-          items[nextItem].transform += items.length * 100;
-          items[nextItem].item.style.transform =
-            "translateX(" + items[nextItem].transform + "%)";
-        }
-        transform -= step;
-      }
-      if (direction === "left") {
-        positionLeftItem--;
-        if (positionLeftItem < position.getMin()) {
-          nextItem = position.getItemMax();
-          items[nextItem].position = position.getMin() - 1;
-          items[nextItem].transform -= items.length * 100;
-          items[nextItem].item.style.transform =
-            "translateX(" + items[nextItem].transform + "%)";
-        }
-        transform += step;
-      }
-      sliderWrapper.style.transform = "translateX(" + transform + "%)";
-    };
-
-    const _controlClick = e => {
-      if (e.target.classList.contains("carousel__control--prev")) {
-        console.log("left");
-        _transformItem("left");
-      } else if (e.target.classList.contains("carousel__control--next")) {
-        console.log("right");
-        _transformItem("right");
-      }
-    };
-
-    const _setUpListeners = () => {
-      mainElement.parentElement.addEventListener("click", _controlClick);
-      window.addEventListener("resize", () => {
-        let _index = 0;
-        const width = parseFloat(document.body.clientWidth);
-        states.forEach((item, index) => {
-          if (width >= states[index].minWidth) _index = index;
-        });
-        if (_index !== _getActive()) {
-          _setActive();
-        }
-      });
-    };
-
-    _setUpListeners();
-    _setActive();
-
-    return {
-      right: () => {
-        // метод right
-        _transformItem("right");
-      },
-      left: () => {
-        // метод left
-        _transformItem("left");
-      }
-    };
+    });
   };
+
+  _setUpListeners();
+  _setActive();
 })();
-const slider = multiSlider();
 
 const phoneImage = document.querySelectorAll(".phone-image");
 const phoneButtons = document.querySelectorAll(".phone > span");
