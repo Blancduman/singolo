@@ -3,6 +3,14 @@ document.addEventListener("scroll", onScroll);
 
 const sections = document.querySelectorAll("div.layout > section");
 const links = document.querySelectorAll("li.navigation__link a");
+const toggle = document.querySelector("input.toggle");
+const aS = document.querySelectorAll(".navigation__link a");
+
+aS.forEach(a => {
+  a.addEventListener("click", () => {
+    toggle.checked = false;
+  });
+});
 
 function onScroll() {
   const curPos = window.scrollY + 95;
