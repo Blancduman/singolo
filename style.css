@@ -1470,10 +1470,10 @@ a:active {
     background-color: #2d303a;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    transform: translate(-100%, 0);
 
     transform-origin: 0% 0%;
-    transform: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transform: translate(-100%, 0);
+    transition: none;
   }
   .navigation__link {
     width: 100%;
@@ -1494,7 +1494,8 @@ a:active {
   }
 
   input:checked.toggle ~ .header__navigation {
-    transition: none;
+    transform: none;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 }
 
