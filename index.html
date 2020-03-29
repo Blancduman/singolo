@@ -10,41 +10,63 @@
   <body>
     <div class="layout">
       <header class="header">
+        <input type="checkbox" class="toggle" id="thing"><label for="thing"></label>
         <h1 class="logo"><a href="#">SINGOLO</a></h1>
         <nav class="header__navigation">
           <ul class="navigation">
-            <li class="navigation__link active"><a href="#">home</a></li>
-            <li class="navigation__link"><a href="#">services</a></li>
-            <li class="navigation__link"><a href="#">portfolio</a></li>
-            <li class="navigation__link"><a href="#">about</a></li>
-            <li class="navigation__link"><a href="#">contact</a></li>
+            <li class="navigation__link active"><a href="#home">home</a></li>
+            <li class="navigation__link"><a href="#services">services</a></li>
+            <li class="navigation__link"><a href="#portfolio">portfolio</a></li>
+            <li class="navigation__link"><a href="#about">about</a></li>
+            <li class="navigation__link"><a href="#contact">contact</a></li>
           </ul>
         </nav>
       </header>
-      <div class="carousel">
-        <span class="carousel__control carousel__control--prev"></span>
 
-        <div class="phone phone--vertical">
-          <div class="item item--vertical item--active">
-            <img
-              src="assets/images/Vertical-imgpng.png"
-              alt="iPhone-Vertical"
-            />
+      <section class="slider" id="home">
+          <span class="slider__control slider__control--prev"></span>
+          <div class="slider__wrapper">
+            <div class="slider__item slider__item-1">
+              <div class="phone phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-1"></span>
+              </div>
+              
+              <div class="phone phone--horizontal">
+                <div class="item item--horizontal item--active">
+                  <img class="phone-image" src="assets/images/Horizontal-img.png" data-image="assets/images/Horizontal-img.png" data-black="assets/images/Horizontal-black.jpg" alt="iPhone-Horizontal" />
+                </div>
+                <span class="phone-btn-2"></span>
+              </div>
+            </div>
+
+            <div class="slider__item slider__item-2">
+              <div class="phone phone--1 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-3"></span>
+              </div>
+              <div class="phone phone--2 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-4"></span>
+              </div>
+              <div class="phone phone--3 phone--vertical">
+                <div class="item item--vertical item--active">
+                  <img class="phone-image" src="assets/images/Vertical-imgpng.png" data-image="assets/images/Vertical-imgpng.png" data-black="assets/images/Vertical-black.png" alt="iPhone-Vertical" />
+                </div>
+                <span class="phone-btn-5"></span>
+              </div>
+            </div>
           </div>
-        </div>
+          <span class="slider__control slider__control--next"></span>
+      </section>
 
-        <div class="phone phone--horizontal">
-          <div class="item item--horizontal item--active">
-            <img
-              src="assets/images/Horizontal-img.png"
-              alt="iPhone-Horizontal"
-            />
-          </div>
-        </div>
-
-        <span class="carousel__control carousel__control--next"></span>
-      </div>
-      <section class="services">
+      <section class="services" id="services">
         <div class="wrapper">
           <h2 class="services__title">Our Services</h2>
           <p class="services__description">
@@ -54,7 +76,7 @@
             tortor mauris condimentum nibh.
           </p>
 
-          <div class="layout-3-column marginTop54">
+          <div class="services__list">
             <div class="service">
               <div class="service__icon">
                 <img src="assets/images/Pen.png" alt="Pen icon" />
@@ -130,8 +152,9 @@
           </div>
         </div>
       </section>
-      <section class="portfolio">
-        <div class="wrapper-with-padding">
+
+      <section class="portfolio" id="portfolio">
+        <div class="wrapper">
           <h2 class="portfolio__title title">Portfolio</h2>
           <p class="portfolio__description description">
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
@@ -145,7 +168,7 @@
           </div>
           </div>
           <div class="wrapper">
-          <div class="layout-3-column marginTop20">
+          <div class="work__container">
             <article class="work">
               <img class="work__image" src="assets/images/2/1.png" alt="work" />
             </article>
@@ -186,8 +209,8 @@
           </div>
       </section>
       
-      <section class="about-us">
-        <div class="wrapper-with-padding">
+      <section class="about-us" id="about">
+        <div class="wrapper">
           <h2 class="about-us__title title">About Us</h2>
           <p class="about-us__description description">
             Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis
@@ -196,7 +219,7 @@
             mauris condimentum nibh.
           </p>
       
-          <div class="layout-3-column marginTop21">
+          <div class="employer__list">
             <article class="employer">
               <img class="employer__image" src="assets/images/2/Adam_Jensen.png" alt="Adam Jensen" />
               <h3 class="employer__name">Adam Jensen</h3>
@@ -290,8 +313,8 @@
             </ul>
           </div>
       </section>
-      <section class="contact">
-        <div class="wrapper-with-padding">
+      <section class="contact" id="contact">
+        <div class="wrapper">
           <h2 class="contact__title title">Get a Quote</h2>
           <p class="contact__description description">
             Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
@@ -300,7 +323,7 @@
             tortor mauris condimentum nibh.
           </p>
         </div>
-        <div class="wrapper-no-paddings">
+        <div class="wrapper">
           <div class="contacts__container">
             <div class="contacts__form">
               <form action="#" method="post" class="contacts-form">
@@ -366,5 +389,24 @@
         </div>
       </footer>
     </div>
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>The letter was sent</h2>
+        </div>
+        <div class="modal-body">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button class="close">OK</button>
+        </div>
+      </div>
+    
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
